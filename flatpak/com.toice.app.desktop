@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Toice
+Comment=Real-time Voice-to-Text Transcription
+Exec=toice.sh
+Icon=com.toice.app
+Type=Application
+Categories=Utility;
+Terminal=false
+X-GNOME-Autostart-enabled=true
+StartupNotify=true
+StartupWMClass=com.toice.app
+# DBus handling for single instance
+X-DBus-ServiceName=com.toice.app

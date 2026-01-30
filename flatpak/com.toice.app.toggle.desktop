@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Toice Toggle
+Comment=Toggle Voice Transcription Overlay
+Exec=toice.sh --toggle
+Icon=com.toice.app
+Type=Application
+Categories=Utility;
+Terminal=false
+StartupNotify=true
+X-DBus-ServiceName=com.toice.app

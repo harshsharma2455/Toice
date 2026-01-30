@@ -1,0 +1,28 @@
+# Build Directories
+build/
+build_folder/
+.flatpak-builder/
+dist/
+myrepo/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs & Temp
+*.log
+*.tmp
+*.bak
+*~
+
+# Artifacts
+toice.flatpak
+*.o
+*.a
+*.so
+*.so.*
+*.bin
+# !assets/models/ggml-base.en.bin
+
+# Flatpak
+.flatpak-builder/

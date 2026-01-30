@@ -1,0 +1,57 @@
+app-id: com.toice.app
+runtime: org.kde.Platform
+runtime-version: '6.6'
+sdk: org.kde.Sdk
+command: toice.sh
+finish-args:
+  - --share=ipc
+  - --share=network
+  - --socket=x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --device=all
+  - --device=dri
+  - --talk-name=org.freedesktop.portal.Desktop
+  - --talk-name=org.freedesktop.StatusNotifierWatcher
+  - --talk-name=org.kde.StatusNotifierWatcher
+  - --talk-name=org.freedesktop.StatusNotifierWatcher
+  - --own-name=com.toice.app
+  
+  # Tray Icon & SNI Fixes (Critical for KDE)
+  - --filesystem=/run/user:create
+  
+  # Icon Theme Access (Fixes generic fallback)
+  - --filesystem=xdg-data/icons:ro
+  - --filesystem=/usr/share/icons:ro
+  
+  # Allow access to home for saving settings.sqlite
+  - --filesystem=home
+
+modules:
+  - name: toice
+    buildsystem: cmake-ninja
+    sources:
+      - type: dir
+        path: ..
+    build-options:
+      cflags: -O3 -mavx -mavx2 -mfma
+      cxxflags: -O3 -mavx -mavx2 -mfma -fpermissive
+      config-opts:
+        - -DCMAKE_BUILD_TYPE=Release
+        - -DGGML_AVX=ON
+        - -DGGML_AVX2=ON
+        - -DGGML_FMA=ON
+        - -DGGML_F16C=ON
+        - -DCMAKE_C_FLAGS=-O3 -mavx -mavx2 -mfma -mf16c
+        - -DCMAKE_CXX_FLAGS=-O3 -mavx -mavx2 -mfma -mf16c -fpermissive
+    post-install:
+      # Install Desktop Files
+      - install -Dm644 flatpak/com.toice.app.desktop /app/share/applications/com.toice.app.desktop
+      - install -Dm644 flatpak/com.toice.app.toggle.desktop /app/share/applications/com.toice.app.toggle.desktop
+      # Install Icons (Multi-size PNG + Scalable SVG)
+      - install -Dm644 assets/logo.svg /app/share/icons/hicolor/scalable/apps/com.toice.app.svg
+      - install -Dm644 assets/icon_32.png /app/share/icons/hicolor/32x32/apps/com.toice.app.png
+      - install -Dm644 assets/icon_64.png /app/share/icons/hicolor/64x64/apps/com.toice.app.png
+      - install -Dm644 assets/icon_128.png /app/share/icons/hicolor/128x128/apps/com.toice.app.png
+      - install -Dm644 assets/icon_256.png /app/share/icons/hicolor/256x256/apps/com.toice.app.png
+      - install -Dm644 assets/icon.png /app/share/icons/hicolor/512x512/apps/com.toice.app.png
