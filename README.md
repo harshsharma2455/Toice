@@ -1,9 +1,12 @@
 # Toice - Two Bodies, One Soul 🎙️
 
-![Version](https://img.shields.io/badge/version-1.0-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/status-BETA-yellow?style=for-the-badge)
 ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
 ![Tech](https://img.shields.io/badge/built%20with-C%2B%2B17%20%7C%20Qt6%20%7C%20Whisper-purple?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/platform-Linux%20(Wayland)-orange?style=for-the-badge)
+
+> [!WARNING]
+> **Beta Release**: Toice is currently in active development. While creating the "Two Body" architecture, bugs may appear. Please report issues! 🐛
 
 **Toice** is a minimalist, high-performance voice recorder and transcription tool for Linux, powered by local AI. It is built with **C++17**, **Qt6**, and **whisper.cpp**, designed to be invisible until you need it.
 
