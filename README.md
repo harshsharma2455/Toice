@@ -93,27 +93,23 @@ flatpak-builder --user --install --force-clean build_folder flatpak/com.toice.ap
 
 ## 🔗 The Critical Step: Connecting Body & Soul
 
-**You MUST set a global shortcut for the toggle to work.** The app cannot do this for you.
+**You MUST set a global shortcut for the toggle to work.** Toice cannot "listen" to your keyboard securely without your permission.
 
-### For GNOME Users
-1.  Open **Settings** -> **Keyboard** -> **View and Customize Shortcuts**.
-2.  Select **Custom Shortcuts**.
-3.  Click **Add Shortcut (+)**.
-4.  **Name**: `Toice Toggle`
-5.  **Command**: 
-    ```bash
-    flatpak run --command=toice-trigger.sh com.toice.app
-    ```
-6.  **Shortcut**: Press your desired key (e.g., `F8` or `Super+Alt+R`).
+### Method 1: The "Toice Toggle" App (Recommended)
 
-### For KDE Plasma Users
-1.  Open **System Settings** -> **Shortcuts** -> **Custom Shortcuts**.
-2.  Right-click -> **New** -> **Global Shortcut** -> **Command/URL**.
-3.  **Trigger Tab**: Set your key (e.g., `F9`).
-4.  **Action Tab**:
-    ```bash
-    flatpak run --command=toice-trigger.sh com.toice.app
-    ```
+1.  Open your System Settings -> **Shortcuts** (or Keyboard).
+2.  Add a new shortcut.
+3.  Search for **"Toice Toggle"** in your application list.
+4.  Bind it to your desired key (e.g., `F8` or `Super+Alt+R`).
+
+*This works reliably on both KDE Plasma and GNOME as we register a helper application specifically for this purpose.*
+
+### Method 2: Manual Command (Advanced)
+
+If you prefer custom commands:
+```bash
+flatpak run --command=toice-trigger.sh com.toice.app
+```
 
 ---
 
