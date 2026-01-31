@@ -17,10 +17,17 @@ if [ -f "toice.flatpak" ]; then
     echo "📦 Found local bundle. Installing..."
     flatpak install --user --reinstall --assumeyes "toice.flatpak"
 else
-    echo "⬇️  Downloading latest release..."
-    # Placeholder for future release URL
-    echo "⚠️  No bundle found. Please download 'toice.flatpak' from GitHub Releases and place it here."
-    exit 1
+    echo "⬇️  Downloading latest release from GitHub..."
+    wget -q --show-progress -O toice.flatpak https://github.com/harshsharma2455/Toice/releases/download/v1.0.0-beta/toice.flatpak
+    
+    if [ -f "toice.flatpak" ]; then
+        echo "📦 Installing downloaded bundle..."
+        flatpak install --user --reinstall --assumeyes "toice.flatpak"
+        rm toice.flatpak # Cleanup
+    else
+        echo "❌ Error: Download failed. Please check your internet or the release URL."
+        exit 1
+    fi
 fi
 
 # 3. Success Message & Shortcut Reminder

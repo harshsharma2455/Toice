@@ -57,12 +57,14 @@ Modern compositors (Wayland) prevents apps from "listening" to your keyboard glo
 
 ### 🚀 Quick Start (Easiest)
 
-1.  Download `toice.flatpak` and `install.sh` from **[Releases](https://github.com/harshsharma2455/Toice/releases)**.
-2.  Run the installer:
-    ```bash
-    chmod +x install.sh && ./install.sh
-    ```
-    *This will install the app and guide you through the shortcut setup.*
+Run this in your terminal to install the latest Beta:
+
+```bash
+wget https://raw.githubusercontent.com/harshsharma2455/Toice/main/install.sh
+chmod +x install.sh && ./install.sh
+```
+
+*The script will automatically download the app, install it, and guide you through the shortcut setup.*
 
 ### 📦 Manual Install (Flatpak)
 
