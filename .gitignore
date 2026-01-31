@@ -22,7 +22,7 @@ toice.flatpak
 *.so
 *.so.*
 *.bin
-# !assets/models/ggml-base.en.bin
+assets/models/ggml-base.en.bin
 
 # Flatpak
 .flatpak-builder/
